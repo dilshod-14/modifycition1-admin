@@ -1,6 +1,6 @@
 import express from "express";
 import path from "path";
-import paht from "path";
+
 
 /** 1-ENTRANCE**/
 const app = express();

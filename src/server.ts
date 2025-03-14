@@ -7,10 +7,10 @@ import app from "./app";
 mongoose
   .connect(process.env.MONGO_URL as string, {}) 
   .then((data) => {
-    console.log("MangoDB connction succeed");
+    console.log("MangoDB connection succeed");
     const PORT = process.env.PORT ?? 3003;
     app.listen(PORT, function () {
-      console.log(`Thi\e servsr is running succeesfully on port: ${PORT}`);
+      console.log(`Thi servsr is running succeesfully on port: ${PORT}`);
     });
   })
   .catch((err) => console.log("ERROR on connection MongoDB", err));
