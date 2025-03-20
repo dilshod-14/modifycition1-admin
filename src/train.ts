@@ -23,3 +23,8 @@
 
  -Error handling
  */
+
+ /**Tradition API
+  * Rest API
+  * GraphQL API
+  */

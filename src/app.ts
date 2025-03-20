@@ -14,8 +14,8 @@ app.use(morgan(MORGAN_FORMAT));
 /** 2-SESSION**/
 
 /** 3-VIEW**/
-app.set("view", path.join(__dirname, "view"));
-app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "view"));
+app.set("views engine", "ejs");
 /** 4-ROUTERS**/
 app.use("/admin", routerAdmin); //BSSR: EJS
 app.use("/", router); // SPA: REACT
