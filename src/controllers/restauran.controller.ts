@@ -48,7 +48,7 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
   try {
     console.log("processSignup");
 
-    console.log("body", req.body);
+   
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT; 
 
