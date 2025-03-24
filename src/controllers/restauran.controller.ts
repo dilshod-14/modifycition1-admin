@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { T } from "../lips/types/common";
 import MemberService from "../models/Member.service";
-import { MemberInput } from "../lips/types/members";
+import { LoginInput, MemberInput } from "../lips/types/members";
 import { MemberType } from "../lips/enums/member.enum";
 
 const restaurantController: T = {};
@@ -35,12 +35,18 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processLogin = (req: Request, res: Response) => {
+restaurantController.processLogin = async (req: Request, res: Response) => {
   try {
     console.log("procssesLogin");
-    res.send("DANE");
+    console.log("body", req.body);
+    const input: LoginInput = req.body;
+
+    const memberService = new MemberService();
+    const result = await memberService.processLogin(input);
+    res.send(result);
   } catch (err) {
     console.log("Error procssesLogin", err);
+    res.send(err);
   }
 };
 
@@ -48,17 +54,16 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
   try {
     console.log("processSignup");
 
-   
     const newMember: MemberInput = req.body;
-    newMember.memberType = MemberType.RESTAURANT; 
+    newMember.memberType = MemberType.RESTAURANT;
 
     const memberService = new MemberService();
     const result = await memberService.processSignup(newMember);
 
     res.send(result);
   } catch (err) {
-    console.log("Error procssesSignup", err);  
-    res.send(err);  
+    console.log("Error procssesSignup", err);
+    res.send(err);
   }
 };
 
