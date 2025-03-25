@@ -24,15 +24,15 @@
  -Error handling
  */
 
- /**Tradition API
-  * Rest API
-  * GraphQL API
-  */
+/**Tradition API
+ * Rest API
+ * GraphQL API
+ */
 
- function getFilteredList(): number[] {
-    const list: number[] = [1, 4, 5, 4, 7, 4];
-    const newList: number[] = list.filter(ele => ele === 4);
-    return newList;
-  }
-  
-  console.log(getFilteredList());
+function getFilteredList(): number[] {
+  const list: number[] = [1, 4, 5, 4, 7, 4];
+  const newList: number[] = list.filter((ele) => ele === 4);
+  return newList;
+}
+
+console.log(getFilteredList());
