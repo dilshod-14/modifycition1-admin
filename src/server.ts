@@ -5,13 +5,14 @@ import mongoose from "mongoose";
 import app from "./app";
 
 mongoose
-  .connect(process.env.MONGO_URL as string, {}) 
+  .connect(process.env.MONGO_URL as string, {})
   .then((data) => {
     console.log("MangoDB connection succeed");
     const PORT = process.env.PORT ?? 3003;
     app.listen(PORT, function () {
-      console.log(`Thi servsr is running succeesfully on port: ${PORT}`);
+      console.info(`Thi servsr is running succeesfully on port: ${PORT}`);
+      console.info(`Admin project on http://localhost:${PORT}/admin \n`);
     });
-  })      
+  })
   .catch((err) => console.log("ERROR on connection MongoDB", err));
-        
+   
