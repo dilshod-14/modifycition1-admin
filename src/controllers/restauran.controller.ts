@@ -3,6 +3,7 @@ import { T } from "../lips/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, MemberInput } from "../lips/types/members";
 import { MemberType } from "../lips/enums/member.enum";
+const memberService = new MemberService();
 
 const restaurantController: T = {};
 
@@ -16,6 +17,14 @@ restaurantController.goHome = (req: Request, res: Response) => {
     console.log("Error goHOme", err);
   }
 };
+restaurantController.getSignup = (req: Request, res: Response) => {
+  try {
+    console.log("Signup Page");
+    res.send("Signup Page");
+  } catch (err) {
+    console.log("Error getSignup", err);
+  }
+};
 
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
@@ -26,12 +35,18 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.getSignup = (req: Request, res: Response) => {
+restaurantController.processSignup = async (req: Request, res: Response) => {
   try {
-    console.log("Signup Page");
-    res.send("Signup Page");
+    console.log("processSignup");
+
+    const newMember: MemberInput = req.body;
+ newMember.memberType = MemberType.RESTAURANT;
+const result = await memberService.processSignup(newMember); // CALL
+// TODO: SESSIONS AUTHENTICATION
+    res.send(result);
   } catch (err) {
-    console.log("Error getSignup", err);
+    console.log("Error procssesSignup", err);
+    res.send(err);
   }
 };
 
@@ -41,28 +56,11 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
     console.log("body", req.body);
     const input: LoginInput = req.body;
 
-    const memberService = new MemberService();
     const result = await memberService.processLogin(input);
+   // TODO: SESSIONS AUTHENTICATION
     res.send(result);
   } catch (err) {
     console.log("Error procssesLogin", err);
-    res.send(err);
-  }
-};
-
-restaurantController.processSignup = async (req: Request, res: Response) => {
-  try {
-    console.log("processSignup");
-
-    const newMember: MemberInput = req.body;
-    newMember.memberType = MemberType.RESTAURANT;
-
-    const memberService = new MemberService();
-    const result = await memberService.processSignup(newMember);
-
-    res.send(result);
-  } catch (err) {
-    console.log("Error procssesSignup", err);
     res.send(err);
   }
 };
