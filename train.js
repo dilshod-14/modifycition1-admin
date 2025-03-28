@@ -21,7 +21,6 @@
 //         result.push(nums[i + n])
 //     }
 
-
 //     return result
 // }
 // console.log(list([2, 5, 1, 3, 4, 7], 3));
@@ -29,16 +28,16 @@
 //     const list = [1, 4, 5, 4, 7, 4];
 //     return list.filter(ele => ele === 4);
 //   }
-  
+
 //   console.log(getFilteredList()); // Output: [4, 4, 4]
-const fruits = ['apple', 'cherry', 'lemon', 'banana'];
+// const fruits = ['apple', 'cherry', 'lemon', 'banana'];
 
-let longest = '';
+// let longest = '';
 
-for (const fruit of fruits) {
-  if (fruit.length > longest.length) {
-    longest = fruit;
-  }
-}
+// for (const fruit of fruits) {
+//   if (fruit.length > longest.length) {
+//     longest = fruit;
+//   }
+// }
 
-console.log(longest); 
+// console.log(longest);

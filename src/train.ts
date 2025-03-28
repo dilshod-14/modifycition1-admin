@@ -34,7 +34,22 @@
  Modern FD        =>   SPA  => REACT
  */
 
- /**
+/**
   request join
   self destroy
   */
+
+function countVowels(a: string) {
+  const vowels = "aeiou";
+  let count = 0;
+
+  for (const c of a) {
+    if (vowels.includes(c)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countVowels("string"));
