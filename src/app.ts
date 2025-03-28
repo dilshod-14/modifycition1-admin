@@ -1,4 +1,4 @@
-import { Collection } from './../node_modules/connect-mongodb-session/node_modules/mongodb/src/collection';
+import { Collection } from "./../node_modules/connect-mongodb-session/node_modules/mongodb/src/collection";
 import express from "express";
 import path from "path";
 import router from "./router";
@@ -6,14 +6,14 @@ import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./lips/config";
 
-import session  from "express-session";
+import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 
 const MongoDBStore = ConnectMongoDB(session);
 const store = new MongoDBStore({
-   uri: String(process.env.MONGO_URL),
-   collection: "sessions", 
-})
+  uri: String(process.env.MONGO_URL),
+  collection: "sessions"
+});
 /** 1-ENTRANCE**/
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
@@ -21,16 +21,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
 /** 2-SESSION**/
-app.use(session({
-    secret:  String(process.env.SESSION_SECRET),
+app.use(
+  session({
+    secret: String(process.env.SESSION_SECRET),
     cookie: {
-      maxAge: 1000 * 360 * 3, // 3h  
+      maxAge: 1000 * 3600 * 6, // 3h
     },
     store: store,
-    
+
     resave: true,
     saveUninitialized: true
-})
+  })
 );
 
 /** 3-VIEW**/

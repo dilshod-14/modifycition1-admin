@@ -29,22 +29,12 @@
  * GraphQL API
  */
 
-// function getFilteredList(): number[] {
-//   const list: number[] = [1, 4, 5, 4, 7, 4];
-//   const newList: number[] = list.filter((ele) => ele === 4);
-//   return newList;
-// }
+/**
+ Traditional FD   =>   SSR  => EJS
+ Modern FD        =>   SPA  => REACT
+ */
 
-// console.log(getFilteredList());
-
-const fruits = ["Uzbekistan", "Japan", "Germany", "Brazil"];
-
-let longest = "";
-
-for (const fruit of fruits) {
-  if (fruit.length > longest.length) {
-    longest = fruit;
-  }
-}
-
-console.log(longest);
+ /**
+  request join
+  self destroy
+  */
