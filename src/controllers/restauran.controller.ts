@@ -3,6 +3,7 @@ import { T } from "../lips/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../lips/types/members";
 import { MemberType } from "../lips/enums/member.enum";
+import { Message } from "../lips/Errors";
 const memberService = new MemberService();
 
 const restaurantController: T = {};
@@ -66,7 +67,6 @@ restaurantController.processLogin = async (
     const input: LoginInput = req.body;
 
     const result = await memberService.processLogin(input);
-    // TODO: SESSIONS AUTHENTICATION
 
     req.session.member = result;
     req.session.save(function () {
@@ -74,6 +74,23 @@ restaurantController.processLogin = async (
     });
   } catch (err) {
     console.log("Error procssesLogin", err);
+    res.send(err);
+  }
+};
+
+restaurantController.checkAuthSession = async (
+  req: AdminRequest,
+  res: Response
+) => {
+  try {
+    console.log("checkAuthSession");
+    if (req.session?.member)
+      res.send(
+        `Hi <script>alert(" ${req.session.member.memberNick}")</script>`
+      );
+    else res.send(`<script>alert("${Message.NOT_AUTHENTICATED}")</script>`);
+  } catch (err) {
+    console.log("Error checkAuthSession", err);
     res.send(err);
   }
 };
