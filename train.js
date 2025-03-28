@@ -41,3 +41,17 @@
 // }
 
 // console.log(longest);
+function countVowels(a) {
+  const vowels = "aeiou";
+  let count = 0;
+
+  for (const c of a) {
+    if (vowels.includes(c)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countVowels("string"));
