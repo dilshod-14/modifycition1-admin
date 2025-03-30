@@ -1,4 +1,3 @@
-import { Collection } from "./../node_modules/connect-mongodb-session/node_modules/mongodb/src/collection";
 import express from "express";
 import path from "path";
 import router from "./router";
@@ -25,7 +24,7 @@ app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
     cookie: {
-      maxAge: 1000 * 3600 * 6, // 3h
+      maxAge: 1000 * 3600 * 6 // 3h
     },
     store: store,
 
