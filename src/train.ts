@@ -24,19 +24,25 @@
  -Error handling
  */
 
-/**Tradition API
+/**Request
+ * Tradition API
  * Rest API
  * GraphQL API
  */
 
-/**
+/**  Frontend development
  Traditional FD   =>   SSR  => EJS
  Modern FD        =>   SPA  => REACT
  */
 
-/**
+/** cookies
   request join
   self destroy
+  */
+/** Validation
+  Frontend Validation
+  Backend validation
+Database validation
   */
 
 function countVowels(a: string) {
