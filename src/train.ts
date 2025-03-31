@@ -59,3 +59,10 @@ function countVowels(a: string) {
 }
 
 console.log(countVowels("string"));
+function reverseSentence(sentence: string) {
+  return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+}
+
+console.log(reverseSentence("we like coding!")); 
+
+
