@@ -12,7 +12,7 @@ class ProductService {
 
   /** SSR */
 
-  public async craetNewproduct(input: ProductInput): Promise<Product> {
+  public async createNewProduct(input: ProductInput): Promise<Product> {
     try {
       return await this.productModel.create(input);
     } catch (err) {
@@ -22,3 +22,4 @@ class ProductService {
   }
 }
 export default ProductService;
+  
