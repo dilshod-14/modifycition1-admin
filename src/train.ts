@@ -45,24 +45,31 @@
 Database validation
   */
 
-function countVowels(a: string) {
-  const vowels = "aeiou";
-  let count = 0;
+// function countVowels(a: string) {
+//   const vowels = "aeiou";
+//   let count = 0;
 
-  for (const c of a) {
-    if (vowels.includes(c)) {
-      count++;
-    }
-  }
+//   for (const c of a) {
+//     if (vowels.includes(c)) {
+//       count++;
+//     }
+//   }
 
-  return count;
+//   return count;
+// }
+
+// console.log(countVowels("string"));
+// function reverseSentence(sentence: string) {
+//   return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+// }
+
+// console.log(reverseSentence("we like coding!")); 
+function getSquareNumbers(a: number[]): { number: number; square: number }[] {
+  return a.map(n => ({ number: n, square: n * n }));
 }
 
-console.log(countVowels("string"));
-function reverseSentence(sentence: string) {
-  return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
-}
+console.log(getSquareNumbers([1, 2, 3]));
 
-console.log(reverseSentence("we like coding!")); 
+
 
 
