@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { HttpCode } from "./../lips/Errors";
+import { HttpCode } from "../lips/Errors";
 import { T } from "../lips/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../lips/types/members";
@@ -45,15 +45,19 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSignup");
+    const file = req.file;
+    if (!file)
+      throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
 
     const newMember: MemberInput = req.body;
+    newMember.memberImages = file?.path;
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember); // CALL
     // TODO: SESSIONS AUTHENTICATION
 
     req.session.member = result;
     req.session.save(function () {
-      res.send(result);
+      res.redirect("/admin/product/all");
     });
   } catch (err) {
     console.log("Error procssesSignup", err);
@@ -78,7 +82,7 @@ restaurantController.processLogin = async (
 
     req.session.member = result;
     req.session.save(function () {
-      res.send(result);
+      res.redirect("/admin/product/all");
     });
   } catch (err) {
     console.log("Error procssesLogin", err);
