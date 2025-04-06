@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
-import { HttpCode } from "../lips/Errors";
+
 import { T } from "../lips/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../lips/types/members";
 import { MemberType } from "../lips/enums/member.enum";
-import Errors, { Message } from "../lips/Errors";
+import Errors, { HttpCode, Message } from "../lips/Errors";
 const memberService = new MemberService();
 
 const restaurantController: T = {};
@@ -104,6 +104,28 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
   } catch (err) {
     console.log("Error logout", err);
     res.redirect("/admin");
+  }
+};
+
+restaurantController.getUsers = async (req: Request, res: Response) => {
+  try {
+    console.log("getUsers");
+    const result = await memberService.getUsers();
+    console.log("result", result);
+
+    res.render("users", { users: result });
+  } catch (err) {
+    console.log("Error getUsers", err);
+    res.redirect("/admin/login");
+  }
+};
+
+restaurantController.updateChosenUser = (req: Request, res: Response) => {
+  try {
+    console.log("updateChosenUser");
+  } catch (err) {
+    console.log("Error updateChosenUser", err);
+    res.redirect("/admin/login");
   }
 };
 

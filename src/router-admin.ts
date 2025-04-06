@@ -1,11 +1,14 @@
 import express from "express";
 const routerAdmin = express.Router();
+
 import restaurantController from "./controllers/restauran.controller";
 import productController from "./controllers/product.controller";
 import makeUploader from "./lips/utils/uploader";
-/**RTestaurant */
+
+/** Home */
 routerAdmin.get("/", restaurantController.goHome);
 
+/** Auth */
 routerAdmin
   .get("/login", restaurantController.getLogin)
   .post("/login", restaurantController.processLogin);
@@ -17,17 +20,17 @@ routerAdmin
     makeUploader("members").single("memberImage"),
     restaurantController.processSignup
   );
-routerAdmin.get("/logout", restaurantController.logout);
 
+routerAdmin.get("/logout", restaurantController.logout);
 routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 
-/**Product */
-
+/** Product */
 routerAdmin.get(
   "/product/all",
   restaurantController.verifyRestaurant,
   productController.getAllProducts
 );
+
 routerAdmin.post(
   "/product/create",
   restaurantController.verifyRestaurant,
@@ -41,5 +44,11 @@ routerAdmin.post(
   productController.updateChosenProduct
 );
 
-/**User */
+/** User */
+routerAdmin.get(
+  "/user/all",
+  restaurantController.verifyRestaurant,
+  restaurantController.getUsers 
+);
+
 export default routerAdmin;
