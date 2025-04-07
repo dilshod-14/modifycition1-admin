@@ -63,13 +63,17 @@ Database validation
 //   return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
 // }
 
-// console.log(reverseSentence("we like coding!")); 
-function getSquareNumbers(a: number[]): { number: number; square: number }[] {
-  return a.map(n => ({ number: n, square: n * n }));
+// console.log(reverseSentence("we like coding!"));
+// function getSquareNumbers(a: number[]): { number: number; square: number }[] {
+//   return a.map(n => ({ number: n, square: n * n }));
+// }
+
+// console.log(getSquareNumbers([1, 2, 3]));
+
+function list(a: string) {
+  return a === a.split("").reverse().join("");
 }
 
-console.log(getSquareNumbers([1, 2, 3]));
-
-
-
-
+console.log(list("son")); 
+console.log(list("level")); 
+console.log(list("hello")); 
