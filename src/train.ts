@@ -1,4 +1,5 @@
 // function getPositiveString(list: number[]): string {
+import { LoginInput } from "./lips/types/members";
 //     return list.filter((num: number) => num > 0).join("");
 // }
 
@@ -70,10 +71,24 @@ Database validation
 
 // console.log(getSquareNumbers([1, 2, 3]));
 
-function list(a: string) {
-  return a === a.split("").reverse().join("");
+// function list(a: string) {
+//   return a === a.split("").reverse().join("");
+// }
+
+// console.log(list("son")); 
+// console.log(list("level")); 
+// console.log(list("hello")); 
+
+function calculateSumOfNumbers(arr: any[]): number {
+  let list = 0;
+
+  for (const item of arr) {
+    if (typeof item === "number") {
+      list += item;
+    }
+  }
+
+  return list;
 }
 
-console.log(list("son")); 
-console.log(list("level")); 
-console.log(list("hello")); 
+console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])); 
