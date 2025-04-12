@@ -42,7 +42,7 @@ class ProductService {
     const result = await this.productModel
       .findOneAndUpdate({ _id: id }, input, { new: true })
       .exec();
-    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.UPDATE_FAILED);
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.UPDATED_FAILED);
     return result;
   }
 }
