@@ -16,13 +16,13 @@ export enum ProductVolume {
 export enum ProductStatus {
   PAUSE = "PAUSE",
   PROCESS = "PROCESS",
-  DELETE = "DELETE"
+  DELETE = "DELELTE"
 }
 
-export enum Productcollection {
+export enum ProductCollection {
   DISH = "DISH",
-  SALAD = "SALAD",
-  DESSERT = "DESSERT",
+  SALAD = "SALALD",
+  DESERT = "DESERT",
   DRINK = "DRINK",
   OTHER = "OTHER"
 }

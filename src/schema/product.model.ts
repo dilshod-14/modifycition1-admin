@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import {
-  Productcollection,
+  ProductCollection,
   ProductSize,
   ProductStatus,
   ProductVolume
@@ -8,15 +8,15 @@ import {
 
 const productSchema = new Schema(
   {
-    productstatus: {
+    productStatus: {
       type: String,
       enum: ProductStatus,
       default: ProductStatus.PAUSE
     },
 
-    Productcollection: {
+    productCollection: {
       type: String,
-      enum: Productcollection,
+      enum: ProductCollection,
       require: true
     },
 
