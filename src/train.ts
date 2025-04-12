@@ -79,16 +79,26 @@ Database validation
 // console.log(list("level")); 
 // console.log(list("hello")); 
 
-function calculateSumOfNumbers(arr: any[]): number {
-  let list = 0;
+// function calculateSumOfNumbers(arr: any[]): number {
+//   let list = 0;
 
-  for (const item of arr) {
-    if (typeof item === "number") {
-      list += item;
-    }
-  }
+//   for (const item of arr) {
+//     if (typeof item === "number") {
+//       list += item;
+//     }
+//   }
 
-  return list;
+//   return list;
+// }
+
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])); 
+
+/** TASK P:
+Parametr sifatida yagona object qabul qiladigan function yozing.
+Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
+MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] */
+function objectToArray(obj: Record<string, any>): [string, any][] {
+  return Object.entries(obj);
 }
-
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])); 
+const result = objectToArray({ a: 10, b: 20 });
+console.log(result);
