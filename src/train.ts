@@ -102,8 +102,11 @@ MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] */
 // }
 // const result = objectToArray({ a: 10, b: 20 });
 // console.log(result);
-function hasProperty(obj: Record<string, any>, key: string): boolean {
-  return key in obj;
+function calculate(str: string): number {
+  const parts = str.trim().split(/\s+/);
+  const a = parseFloat(parts[0]);
+  const b = parseFloat(parts[2]);
+  return a + b;
 }
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
+console.log(calculate("3 + 5"));  
+console.log(calculate("10 + 12")); 
