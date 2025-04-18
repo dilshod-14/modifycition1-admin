@@ -102,11 +102,18 @@ MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] */
 // }
 // const result = objectToArray({ a: 10, b: 20 });
 // console.log(result);
-function calculate(str: string): number {
-  const parts = str.trim().split(/\s+/);
-  const a = parseFloat(parts[0]);
-  const b = parseFloat(parts[2]);
-  return a + b;
+// function calculate(str: string): number {
+//   const parts = str.trim().split(/\s+/);
+//   const a = parseFloat(parts[0]);
+//   const b = parseFloat(parts[2]);
+//   return a + b;
+// }
+// console.log(calculate("3 + 5"));  
+// console.log(calculate("10 + 12")); 
+function missingNumber(a: number[]): number {
+  const b = a.length;
+  const expectedSum = (b * (b + 1)) / 2;
+  const list = a.reduce((list, num) => list + num, 0);
+  return expectedSum - list;
 }
-console.log(calculate("3 + 5"));  
-console.log(calculate("10 + 12")); 
+console.log(missingNumber([3, 0, 1])); 
