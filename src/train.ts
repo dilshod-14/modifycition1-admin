@@ -75,9 +75,9 @@ Database validation
 //   return a === a.split("").reverse().join("");
 // }
 
-// console.log(list("son")); 
-// console.log(list("level")); 
-// console.log(list("hello")); 
+// console.log(list("son"));
+// console.log(list("level"));
+// console.log(list("hello"));
 
 // function calculateSumOfNumbers(arr: any[]): number {
 //   let list = 0;
@@ -91,7 +91,7 @@ Database validation
 //   return list;
 // }
 
-// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])); 
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
 
 /** TASK P:
 Parametr sifatida yagona object qabul qiladigan function yozing.
@@ -108,12 +108,19 @@ MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] */
 //   const b = parseFloat(parts[2]);
 //   return a + b;
 // }
-// console.log(calculate("3 + 5"));  
-// console.log(calculate("10 + 12")); 
-function missingNumber(a: number[]): number {
-  const b = a.length;
-  const expectedSum = (b * (b + 1)) / 2;
-  const list = a.reduce((list, num) => list + num, 0);
-  return expectedSum - list;
+// console.log(calculate("3 + 5"));
+// console.log(calculate("10 + 12"));
+// function missingNumber(a: number[]): number {
+//   const b = a.length;
+//   const expectedSum = (b * (b + 1)) / 2;
+//   const list = a.reduce((list, num) => list + num, 0);
+//   return expectedSum - list;
+// }
+// console.log(missingNumber([3, 0, 1]));
+
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  const mergedArray = arr1.concat(arr2);
+  mergedArray.sort((a, b) => a - b);
+  return mergedArray;
 }
-console.log(missingNumber([3, 0, 1])); 
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); // [0, 3, 4, 4, 6, 30, 31]
