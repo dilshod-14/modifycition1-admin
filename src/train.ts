@@ -118,9 +118,11 @@ MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] */
 // }
 // console.log(missingNumber([3, 0, 1]));
 
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-  const mergedArray = arr1.concat(arr2);
-  mergedArray.sort((a, b) => a - b);
-  return mergedArray;
+function sumOdds(limit: number): number {
+  let count = 0;
+  for (let i = 1; i < limit; i += 2) {
+    count++;
+  }
+  return count;
 }
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30])); // [0, 3, 4, 4, 6, 30, 31]
+console.log(sumOdds(10));
