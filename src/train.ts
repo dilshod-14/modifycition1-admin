@@ -118,11 +118,26 @@ MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] */
 // }
 // console.log(missingNumber([3, 0, 1]));
 
-function sumOdds(limit: number): number {
-  let count = 0;
-  for (let i = 1; i < limit; i += 2) {
-    count++;
+// function sumOdds(limit: number): number {
+//   let count = 0;
+//   for (let i = 1; i < limit; i += 2) {
+//     count++;
+//   }
+//   return count;
+// }
+// console.log(sumOdds(10));
+function countChars(s: string): { [key: string]: number } {
+  let a: { [key: string]: number } = {};
+
+  for (let b of s) {
+    if (a[b]) {
+      a[b] += 1;
+    } else {
+      a[b] = 1;
+    }
   }
-  return count;
+
+  return a;
 }
-console.log(sumOdds(10));
+
+console.log(countChars("hello"));
