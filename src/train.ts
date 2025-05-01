@@ -126,18 +126,29 @@ MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] */
 //   return count;
 // }
 // console.log(sumOdds(10));
-function countChars(s: string): { [key: string]: number } {
-  let a: { [key: string]: number } = {};
+// function countChars(s: string): { [key: string]: number } {
+//   let a: { [key: string]: number } = {};
 
-  for (let b of s) {
-    if (a[b]) {
-      a[b] += 1;
-    } else {
-      a[b] = 1;
-    }
+//   for (let b of s) {
+//     if (a[b]) {
+//       a[b] += 1;
+//     } else {
+//       a[b] = 1;
+//     }
+//   }
+
+//   return a;
+// }
+
+// console.log(countChars("hello"));
+
+function chunkArray(a: any[], b: number): any[][] {
+  const c = [];
+  for (let i = 0; i < a.length; i += b) {
+    c.push(a.slice(i, i + b));
   }
-
-  return a;
+  return c;
 }
 
-console.log(countChars("hello"));
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3));
+
