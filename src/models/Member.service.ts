@@ -37,11 +37,12 @@ class MemberService {
       .findOne(
         {
           memberNick: input.memberNick,
-          memberStatus: { $ne: MemberStatus.DELETE },
+          memberStatus: { $ne: MemberStatus.DELETE }
         },
         { _id: 1, memberNick: 1, memberPassword: 1, memberStatus: 1 }
       )
       .exec();
+    console.log("Found Member:", member);
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
     else if (member.memberStatus === MemberStatus.BLOCK) {
       throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
@@ -111,7 +112,8 @@ class MemberService {
       .findByIdAndUpdate({ _id: input._id }, input, { new: true })
       .exec();
 
-    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATED_FAILED);
+    if (!result)
+      throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATED_FAILED);
 
     return result;
   }

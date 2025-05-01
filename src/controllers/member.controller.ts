@@ -3,8 +3,9 @@ import { T } from "../lips/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput } from "../lips/types/members";
 import Errors from "../lips/Errors";
-
+import AuthService from "../models/Auth.service";
 const memberService = new MemberService();
+const authService = new AuthService();
 
 const memberController: T = {};
 memberController.signup = async (req: Request, res: Response) => {
@@ -13,7 +14,9 @@ memberController.signup = async (req: Request, res: Response) => {
 
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input); // CALL
-// TODO: TOKEN AUTHENTICATION
+    const token = await authService.createToken(result);
+    console.log("token:", token);
+
     res.json({ member: result });
   } catch (err) {
     console.log("Error signup", err);
@@ -26,7 +29,9 @@ memberController.login = async (req: Request, res: Response) => {
     console.log("login");
     const input: LoginInput = req.body,
       result = await memberService.login(input);
-// TODO: TOKEN AUTHENTICATION
+    const token = await authService.createToken(result);
+    console.log("token:=>", token);
+
     res.json({ member: result });
   } catch (err) {
     console.log("Error login", err);
