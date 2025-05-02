@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 import memberController from "./controllers/member.controller";
-
+import uploader from "./lips/utils/uploader";
 /**Member */
 router.post("/member/login", memberController.login);
 
@@ -15,6 +15,14 @@ router.get(
   "/member/detail",
   memberController.verifyAuth,
   memberController.getMemberDetail
+);
+
+router.post(
+  "/member/update",
+  memberController.verifyAuth,
+  uploader("members").single("memberImages"),
+
+  memberController.updateMember
 );
 
 export default router;
