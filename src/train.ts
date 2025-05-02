@@ -1,5 +1,4 @@
 // function getPositiveString(list: number[]): string {
-import { LoginInput } from "./lips/types/members";
 //     return list.filter((num: number) => num > 0).join("");
 // }
 
@@ -46,109 +45,24 @@ import { LoginInput } from "./lips/types/members";
 Database validation
   */
 
-// function countVowels(a: string) {
-//   const vowels = "aeiou";
-//   let count = 0;
+function countOccurrences(obj: any, key: string): number {
+  let count = 0;
 
-//   for (const c of a) {
-//     if (vowels.includes(c)) {
-//       count++;
-//     }
-//   }
+  for (const k in obj) {
+    if (k === key) count++;
 
-//   return count;
-// }
-
-// console.log(countVowels("string"));
-// function reverseSentence(sentence: string) {
-//   return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
-// }
-
-// console.log(reverseSentence("we like coding!"));
-// function getSquareNumbers(a: number[]): { number: number; square: number }[] {
-//   return a.map(n => ({ number: n, square: n * n }));
-// }
-
-// console.log(getSquareNumbers([1, 2, 3]));
-
-// function list(a: string) {
-//   return a === a.split("").reverse().join("");
-// }
-
-// console.log(list("son"));
-// console.log(list("level"));
-// console.log(list("hello"));
-
-// function calculateSumOfNumbers(arr: any[]): number {
-//   let list = 0;
-
-//   for (const item of arr) {
-//     if (typeof item === "number") {
-//       list += item;
-//     }
-//   }
-
-//   return list;
-// }
-
-// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
-
-/** TASK P:
-Parametr sifatida yagona object qabul qiladigan function yozing.
-Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
-MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] */
-// function objectToArray(obj: Record<string, any>): [string, any][] {
-//   return Object.entries(obj);
-// }
-// const result = objectToArray({ a: 10, b: 20 });
-// console.log(result);
-// function calculate(str: string): number {
-//   const parts = str.trim().split(/\s+/);
-//   const a = parseFloat(parts[0]);
-//   const b = parseFloat(parts[2]);
-//   return a + b;
-// }
-// console.log(calculate("3 + 5"));
-// console.log(calculate("10 + 12"));
-// function missingNumber(a: number[]): number {
-//   const b = a.length;
-//   const expectedSum = (b * (b + 1)) / 2;
-//   const list = a.reduce((list, num) => list + num, 0);
-//   return expectedSum - list;
-// }
-// console.log(missingNumber([3, 0, 1]));
-
-// function sumOdds(limit: number): number {
-//   let count = 0;
-//   for (let i = 1; i < limit; i += 2) {
-//     count++;
-//   }
-//   return count;
-// }
-// console.log(sumOdds(10));
-// function countChars(s: string): { [key: string]: number } {
-//   let a: { [key: string]: number } = {};
-
-//   for (let b of s) {
-//     if (a[b]) {
-//       a[b] += 1;
-//     } else {
-//       a[b] = 1;
-//     }
-//   }
-
-//   return a;
-// }
-
-// console.log(countChars("hello"));
-
-function chunkArray(a: any[], b: number): any[][] {
-  const c = [];
-  for (let i = 0; i < a.length; i += b) {
-    c.push(a.slice(i, i + b));
+    const value = obj[k];
+    if (typeof value === "object" && value !== null) {
+      count += countOccurrences(value, key);
+    }
   }
-  return c;
+
+  return count;
 }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3));
-
+console.log(
+  countOccurrences(
+    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+    "model"
+  )
+);
