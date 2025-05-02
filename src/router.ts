@@ -3,6 +3,7 @@ const router = express.Router();
 import memberController from "./controllers/member.controller";
 import uploader from "./lips/utils/uploader";
 /**Member */
+router.get("/member/restaurant", memberController.getRestaurant);
 router.post("/member/login", memberController.login);
 
 router.post("/member/signup", memberController.signup);
@@ -24,7 +25,7 @@ router.post(
 
   memberController.updateMember
 );
-router.get("/member/top-users", memberController.getTopUsers)
+router.get("/member/top-users", memberController.getTopUsers);
 export default router;
 /** Product */
 
