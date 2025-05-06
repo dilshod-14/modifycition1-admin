@@ -1,12 +1,12 @@
 import { ProductCollection } from "./../lips/enums/product.enum";
-//
+import { shapeIntoMongooseObjectId } from "../lips/config";
 import { Request, Response } from "express";
 import Errors, { HttpCode, Message } from "../lips/Errors";
 
 import { T } from "../lips/types/common";
 import ProductService from "../models/product.servis";
 import { ProductInput, ProductInquery } from "../lips/types/product";
-import { AdminRequest } from "../lips/types/members";
+import { AdminRequest, ExtendedRequest } from "../lips/types/members";
 const productService = new ProductService();
 const productController: T = {};
 
@@ -29,6 +29,25 @@ productController.getProducts = async (req: Request, res: Response) => {
     res.status(HttpCode.OK).json({ result });
   } catch (err) {
     console.log("Error, getProducts", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
+
+productController.getProduct = async (req: ExtendedRequest, res: Response) => {
+  try {
+    console.log("getProduct");
+
+    const { id } = req.params;
+    console.log("req.memeber:", req.member);
+    const memberId = req.member?._id
+      ? shapeIntoMongooseObjectId(req.member._id)
+      : null;
+
+    const result = await productService.getProduct(memberId, id);
+    res.status(HttpCode.OK).json(result);
+  } catch (err) {
+    console.log("Error, getProduct", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }
