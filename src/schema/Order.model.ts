@@ -25,7 +25,7 @@ const orderSchema = new Schema(
       ref: "Member"
     }
   },
-  { timestamps: true, collection: "orderItems" }
+  { timestamps: true }
 );
 
-export default mongoose.model("Order", orderSchema);
+export default mongoose.model("Orders", orderSchema);

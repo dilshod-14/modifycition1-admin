@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import Errors, { HttpCode, Message } from "../lips/Errors";
 
 import { T } from "../lips/types/common";
-import ProductService from "../models/product.servis";
+import ProductService from "../models/Product.servis"
 import { ProductInput, ProductInquery } from "../lips/types/product";
 import { AdminRequest, ExtendedRequest } from "../lips/types/members";
 const productService = new ProductService();
@@ -43,7 +43,6 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
     const memberId = req.member?._id
       ? shapeIntoMongooseObjectId(req.member._id)
       : null;
-
     const result = await productService.getProduct(memberId, id);
     res.status(HttpCode.OK).json(result);
   } catch (err) {

@@ -1,4 +1,4 @@
-import { ProductCollection } from "./../lips/enums/product.enum";
+import { ProductCollection } from "../lips/enums/product.enum";
 import { T } from "../lips/types/common";
 import { shapeIntoMongooseObjectId } from "../lips/config";
 import Errors, { HttpCode, Message } from "../lips/Errors";
@@ -8,7 +8,7 @@ import {
   ProductInquery,
   ProductUpdateInput
 } from "../lips/types/product";
-import ProductModel from "../schema/product.model";
+import ProductModel from "../schema/Product.model";
 import { ProductStatus } from "../lips/enums/product.enum";
 import { ObjectId } from "mongoose";
 import { ViewService } from "./View.servic";
@@ -17,7 +17,7 @@ import { ViewGroup } from "../lips/enums/view.enum";
 class ProductService {
   private readonly productModel;
   public viewService;
-  constructor() {
+  constructor() { 
     this.productModel = ProductModel;
     this.viewService = new ViewService();
   }
