@@ -1,3 +1,4 @@
+import { MemberType, MemberStatus } from "./../lips/enums/member.enum";
 import MemberModel from "../schema/Member.model";
 import {
   LoginInput,
@@ -6,7 +7,6 @@ import {
   MemberUpdateInput
 } from "../lips/types/members";
 import Errors, { HttpCode, Message } from "../lips/Errors";
-import { MemberStatus, MemberType } from "../lips/enums/member.enum";
 import * as bcrypt from "bcryptjs";
 import { shapeIntoMongooseObjectId } from "../lips/config";
 
@@ -105,6 +105,21 @@ class MemberService {
     return result;
   }
 
+  public async addUserPoint(member: Member, point: number): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+
+    return await this.memberModel
+      .findOneAndUpdate(
+        {
+          _id: memberId,
+          memberType: MemberType.USER,
+          memberStatus: MemberStatus.ACTIVE
+        },
+        { $inc: { memberPoints: point } },
+        { new: true }
+      )
+      .exec();
+  }
   /** SSR */
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
