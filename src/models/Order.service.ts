@@ -88,7 +88,7 @@ class OrderService {
         },
         {
           $lookup: {
-            from: "product",
+            from: "products",
             localField: "orderItems.productId",
             foreignField: "_id",
             as: "productData"
@@ -97,6 +97,7 @@ class OrderService {
       ])
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    console.log("result=>", result);
     return result;
   }
   public async updateOrder(

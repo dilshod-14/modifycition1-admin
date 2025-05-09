@@ -30,10 +30,9 @@ orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
       limit: Number(limit),
       orderStatus: orderStatus as OrderStatus
     };
-    console.log("inquiry=>", inquiry);
-    const rusolt = await orderService.getMyOrders(req.member, inquiry);
+    const result = await orderService.getMyOrders(req.member, inquiry);
 
-    res.status(HttpCode.CREATED).json({ rusolt });
+    res.status(HttpCode.CREATED).json(result);
   } catch (err) {
     console.log("Error getMyOrders", err);
     if (err instanceof Errors) res.status(err.code).json(err);
