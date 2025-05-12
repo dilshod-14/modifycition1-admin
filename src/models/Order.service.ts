@@ -93,6 +93,14 @@ class OrderService {
             foreignField: "_id",
             as: "productData"
           }
+        },
+        {
+          $lookup: {
+            from: "members",
+            localField: "orders.memberId",
+            foreignField: "id",
+            as: "memberData"
+          }
         }
       ])
       .exec();

@@ -45,14 +45,9 @@
 Database validation
   */
 
-function sumEvens(a: number[]): number {
-  let s = 0;
-  for (let b = 0; b < a.length; b++) {
-    if (a[b] % 2 === 0) {
-      s += a[b];
-    }
-  }
+function randomBetween(a: number, b: number): number {
+  const s = Math.floor(Math.random() * (b - a + 1)) + a;
   return s;
 }
-
-console.log(sumEvens([1, 2, 3]));
+const result = randomBetween(30, 50);
+console.log(result);

@@ -2,6 +2,7 @@ import { OrderStatus } from "../enums/order.enum";
 
 import { ObjectId } from "mongoose";
 import { Product } from "./product";
+import { Member } from "./members";
 
 export interface OrderItem {
   _id: ObjectId;
@@ -24,6 +25,7 @@ export interface Order {
   /**from aggregations */
   orderItems: OrderItem[];
   productData: Product[];
+  memberData: Member[];
 }
 
 export interface OrderItemInput {
