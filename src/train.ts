@@ -45,9 +45,9 @@
 Database validation
   */
 
-function randomBetween(a: number, b: number): number {
-  const s = Math.floor(Math.random() * (b - a + 1)) + a;
-  return s;
+function celsiusToFahrenheit(c: number): number {
+  return (c * 9) / 5 + 32;
 }
-const result = randomBetween(30, 50);
-console.log(result);
+console.log(celsiusToFahrenheit(0));
+console.log(celsiusToFahrenheit(10));
+console.log(celsiusToFahrenheit(-40));
