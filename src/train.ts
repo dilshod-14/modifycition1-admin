@@ -45,9 +45,9 @@
 Database validation
   */
 
-function celsiusToFahrenheit(c: number): number {
-  return (c * 9) / 5 + 32;
+function change(a: number, b: number[], c: number): number[] {
+  b[a] = c;
+  return b;
 }
-console.log(celsiusToFahrenheit(0));
-console.log(celsiusToFahrenheit(10));
-console.log(celsiusToFahrenheit(-40));
+
+console.log(change(1, [1, 3, 7, 2], 2)); 
