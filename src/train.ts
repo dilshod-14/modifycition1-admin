@@ -45,9 +45,20 @@
 Database validation
   */
 
-function change(a: number, b: number[], c: number): number[] {
-  b[a] = c;
-  return b;
+function removeDuplicate(str: string): string {
+  let result = "";
+  const seen = new Set<string>();
+
+  for (const char of str) {
+    if (!seen.has(char)) {
+      seen.add(char);
+      result += char;
+    }
+  }
+
+  return result;
 }
 
-console.log(change(1, [1, 3, 7, 2], 2)); 
+console.log(removeDuplicate("stringg"));
+console.log(removeDuplicate("aabbccddeeff"));
+console.log(removeDuplicate("typescript"));
