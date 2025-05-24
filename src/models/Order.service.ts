@@ -94,14 +94,7 @@ class OrderService {
             as: "productData"
           }
         },
-        {
-          $lookup: {
-            from: "members",
-            localField: "orders.memberId",
-            foreignField: "id",
-            as: "memberData"
-          }
-        }
+        
       ])
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);

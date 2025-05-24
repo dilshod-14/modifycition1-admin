@@ -45,20 +45,29 @@
 Database validation
   */
 
-function removeDuplicate(str: string): string {
-  let result = "";
-  const seen = new Set<string>();
+// function removeDuplicate(str: string): string {
+//   let result = "";
+//   const seen = new Set<string>();
 
-  for (const char of str) {
-    if (!seen.has(char)) {
-      seen.add(char);
-      result += char;
-    }
-  }
+//   for (const char of str) {
+//     if (!seen.has(char)) {
+//       seen.add(char);
+//       result += char;
+//     }
+//   }
 
-  return result;
+//   return result;
+// }
+
+// console.log(removeDuplicate("stringg"));
+// console.log(removeDuplicate("aabbccddeeff"));
+// console.log(removeDuplicate("typescript"));
+
+function capitalizeWords(a: string): string {
+  return a
+    .split(" ")
+    .map((b) => (b.length > 2 ? b[0].toUpperCase() + b.slice(1) : b))
+    .join(" ");
 }
 
-console.log(removeDuplicate("stringg"));
-console.log(removeDuplicate("aabbccddeeff"));
-console.log(removeDuplicate("typescript"));
+console.log(capitalizeWords("a b name should be a string"));

@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import Errors, { HttpCode, Message } from "../lips/Errors";
 
 import { T } from "../lips/types/common";
-import ProductService from "../models/Product.servis"
+import ProductService from "../models/Product.servis";
 import { ProductInput, ProductInquery } from "../lips/types/product";
 import { AdminRequest, ExtendedRequest } from "../lips/types/members";
 const productService = new ProductService();
@@ -26,7 +26,7 @@ productController.getProducts = async (req: Request, res: Response) => {
     if (search) inquiry.search = String(search);
 
     const result = await productService.getProducts(inquiry);
-    res.status(HttpCode.OK).json({ result });
+    res.status(HttpCode.OK).json(result);
   } catch (err) {
     console.log("Error, getProducts", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -58,7 +58,6 @@ productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log("getAllProducts");
     const data = await productService.getAllProducts();
-    console.log("product object:", data[0]);
     res.render("products", { products: data });
   } catch (err) {
     console.log("Error, getAllProducts", err);
@@ -80,9 +79,10 @@ productController.createNewProduct = async (
 
     const data: ProductInput = req.body;
     data.productImages = req.files?.map((ele) => {
-      return ele.path.replace(/\\/g, "");
+      return ele.path.replace(/\\/g, "/");
     });
     await productService.createNewProduct(data);
+    console.log("productCollection:", data.productCollection);
     res.send(
       `Hi <script> alert(" Sucessful creation"); window .location.replace('/admin/product/all') </script>`
     );
