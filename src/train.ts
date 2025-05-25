@@ -63,11 +63,9 @@ Database validation
 // console.log(removeDuplicate("aabbccddeeff"));
 // console.log(removeDuplicate("typescript"));
 
-function capitalizeWords(a: string): string {
-  return a
-    .split(" ")
-    .map((b) => (b.length > 2 ? b[0].toUpperCase() + b.slice(1) : b))
-    .join(" ");
+function convertToSnakeCase(s: string): string {
+  return s.trim().toLowerCase().replace(/\s+/g, "_");
 }
-
-console.log(capitalizeWords("a b name should be a string"));
+const a = "name should be a string";
+const b = convertToSnakeCase(a);
+console.log(b);
