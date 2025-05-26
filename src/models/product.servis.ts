@@ -17,7 +17,7 @@ import { ViewGroup } from "../lips/enums/view.enum";
 class ProductService {
   private readonly productModel;
   public viewService;
-  constructor() { 
+  constructor() {
     this.productModel = ProductModel;
     this.viewService = new ViewService();
   }
@@ -25,10 +25,11 @@ class ProductService {
   /** SPA */
 
   public async getProducts(inquiry: ProductInquery): Promise<Product[]> {
-    console.log(inquiry);
+    console.log("getProducts INQUIRY:", inquiry);
+
     const match: T = { productStatus: ProductStatus.PROCESS };
     if (inquiry.productCollection)
-      match.ProductCollection = inquiry.productCollection;
+      match.productCollection = inquiry.productCollection;
     if (inquiry.search) {
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
     }
