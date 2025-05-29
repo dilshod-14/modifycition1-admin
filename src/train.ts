@@ -63,9 +63,25 @@ Database validation
 // console.log(removeDuplicate("aabbccddeeff"));
 // console.log(removeDuplicate("typescript"));
 
-function convertToSnakeCase(s: string): string {
-  return s.trim().toLowerCase().replace(/\s+/g, "_");
+// function convertToSnakeCase(s: string): string {
+//   return s.trim().toLowerCase().replace(/\s+/g, "_");
+// }
+// const a = "name should be a string";
+// const b = convertToSnakeCase(a);
+// console.log(b);
+   function findDisappearedNumbers(a: number[]): number[] {
+  const b: number = Math.min(...a);
+  const c: number = Math.max(...a);
+  const d: number[] = [];
+
+  for (let i = b; i <= c; i++) {
+    if (!a.includes(i)) {
+      d.push(i);
+    }
+  }
+
+  return d;
 }
-const a = "name should be a string";
-const b = convertToSnakeCase(a);
-console.log(b);
+
+
+console.log(findDisappearedNumbers([1, 3, 4, 7])); 
