@@ -69,19 +69,18 @@ Database validation
 // const a = "name should be a string";
 // const b = convertToSnakeCase(a);
 // console.log(b);
-   function findDisappearedNumbers(a: number[]): number[] {
-  const b: number = Math.min(...a);
-  const c: number = Math.max(...a);
-  const d: number[] = [];
+ 
 
-  for (let i = b; i <= c; i++) {
-    if (!a.includes(i)) {
-      d.push(i);
-    }
-  }
 
-  return d;
+function a(b: string): Promise<string> {
+  return new Promise((c) => {
+    setTimeout(() => {
+      c(b);
+    }, 3000); 
+  });
 }
 
 
-console.log(findDisappearedNumbers([1, 3, 4, 7])); 
+a("Hello World!").then((natija) => {
+  console.log(natija); 
+});
