@@ -72,15 +72,34 @@ Database validation
  
 
 
-function a(b: string): Promise<string> {
-  return new Promise((c) => {
-    setTimeout(() => {
-      c(b);
-    }, 3000); 
-  });
+// function a(b: string): Promise<string> {
+//   return new Promise((c) => {
+//     setTimeout(() => {
+//       c(b);
+//     }, 3000); 
+//   });
+// }
+
+
+// a("Hello World!").then((natija) => {
+//   console.log(natija); 
+// });
+
+
+
+function reduceNestedArray(arr: any[]): number {
+  let sum = 0;
+
+  for (const item of arr) {
+    if (Array.isArray(item)) {
+      sum += reduceNestedArray(item); 
+    } else if (typeof item === 'number') {
+      sum += item;
+    }
+  }
+
+  return sum;
 }
 
 
-a("Hello World!").then((natija) => {
-  console.log(natija); 
-});
+console.log(reduceNestedArray([1, [1, 2, [4]]])); // 8
