@@ -28,7 +28,7 @@ memberController.getRestaurant = async (req: Request, res: Response) => {
 };
 memberController.signup = async (req: Request, res: Response) => {
   try {
-    console.log("signup");
+    console.log("signup"); 
 
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input); // CALL

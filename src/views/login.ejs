@@ -3,15 +3,17 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css" />
 
 <body>
+  <div class="home-container">
+    <video autoplay muted loop class="background-video">
+      <source src="/vidyo/gullar-vidyo.mp4" type="video/mp4" />
+    </video>
   <form class="login-container" action="/admin/login" METHOD="POST">
     <div class="login-frame">
       <div class="login-top">
-        <span>Enter</span>
-        <div>Go back <a href="/admin" style="color: #6440fb">Home</a></div>
-        <p>
-          Not registered yet?
-          <a href="/admin/signup" style="color: #6440fb">Signup</a>
-        </p>
+       
+        
+        <div class="home"> <a href="/admin" style="color: #869c67">Home</a></div>
+        
       </div>
       <div class="login-input-frame">
         <div class="login-input-container">
@@ -38,7 +40,14 @@
         </div>
       </div>
       <button class="login-btn btn" name="login" type="submit">Login</button>
-    </div>
+    </div >
+    <div class="sugnup">
+          Not registered yet?
+          <a href="/admin/signup" style="color: #a7ccc6">Signup</a>
+        </div>
+
+   
+    
   </form>
 </body>
 

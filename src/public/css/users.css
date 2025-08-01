@@ -1,3 +1,13 @@
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 1.5;
+}
 .users-container {
   position: relative;
   width: auto;
@@ -7,7 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(-45deg, #110303bf, #e37813, #011c1aba, #968383);
+  /* background: linear-gradient(-45deg, #110303bf, #e37813, #011c1aba, #968383); */
 }
 
 .users-container a {
@@ -16,7 +26,7 @@
 }
 
 .users-container .nav-item a {
-  color: #e3c08d;
+  color: #75a886;
 }
 
 .users-container .nav-item a.disabled {
@@ -27,7 +37,7 @@
   position: absolute;
   z-index: 10000;
   top: 1%;
-  color: #efefee;
+  color: #a7a792;
   font-size: 40px;
   font-family: monospace;
 }
@@ -79,7 +89,7 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 25px;
-  color: #ffffff;
+  color: #7ec5dd;
 }
 
 .users-container select:focus {
@@ -92,7 +102,7 @@
   padding: 0px 7px;
   /*width: 100%;*/
   height: 27px;
-  background: #ffffff;
+  background: #b7c9d2;
   border: 1px solid #dddddd;
   border-radius: 8px;
   font-family: "GT Walsheim Pro";

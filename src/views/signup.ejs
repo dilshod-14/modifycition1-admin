@@ -3,6 +3,11 @@
 <link rel="stylesheet" type="text/css" href="/css/signup.css" />
 
 <body>
+
+   <div class="home-container">
+    <video autoplay muted loop class="background-video">
+      <source src="/vidyo/gullar-vidyo.mp4" type="video/mp4" />
+    </video>
   <div class="signup-container">
     <form
       onsubmit="return validateSignupForm()"
@@ -10,14 +15,14 @@
       method="POST"
       enctype="multipart/form-data"
     >
-      <div class="signup-frame" style="width: 650px">
+      <div class="signup-frame" >
         <div class="signup-top">
           <span>Signup</span>
-          <div>Go back <a href="/admin" style="color: #6440fb">Home</a></div>
-          <p>
-            Already signed up?
-            <a href="/admin/login" style="color: #6440fb">Login</a>
-          </p>
+          <div class="home-sugnup"><a href="/admin" style="color: #869c67">Home</a></div>
+          <span>
+            
+            <a href="/admin/login" style="color: #869c67">Login</a>
+          </span>
         </div>
 
         <div class="sign-input-frame" style="justify-content: space-between">
@@ -102,8 +107,18 @@
 
         <button class="signup-btn btn" name="signup" type="submit">
           Signup
-        </button>
+        </button> 
+        
+          <a href="/auth/google"
+   class="google-btn">
+  <img src="https://developers.google.com/identity/images/g-logo.png"
+       alt="Google logo"
+       class="google-icon" />
+  <span>Sign up with Google</span>
+</a>
       </div>
+   
+
     </form>
   </div>
 
