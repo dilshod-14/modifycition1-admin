@@ -6,7 +6,7 @@ import Errors, { HttpCode, Message } from "../lips/Errors";
 import { T } from "../lips/types/common";
 import { ProductInput, ProductInquery } from "../lips/types/product";
 import { AdminRequest, ExtendedRequest } from "../lips/types/members";
-import ProductService from "../models/product.servis";
+import ProductService from "../models/product.service";
 const productService = new ProductService();
 const productController: T = {};
 
@@ -84,7 +84,7 @@ productController.createNewProduct = async (
       throw new Errors(HttpCode.INTERNAL_SERVICE_ERROR, Message.CREATE_FAILED);
 
     const data: ProductInput = req.body;
-    data.productImages = req.files?.map((ele) => {
+    data.productImages = req.files?.map((ele) => {   
       return ele.path.replace(/\\/g, "/");
     });
     await productService.createNewProduct(data);
