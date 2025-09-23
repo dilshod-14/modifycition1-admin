@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128">
+  <!-- Lokatsiya belgisi -->
+  <path d="M32 2C19 2 9 12 9 25c0 14 15 31 23 37 1 .8 2 .8 3 0 8-6 23-23 23-37C55 12 45 2 32 2z" fill="#6A4" stroke="#452" stroke-width="2"></path>
+  
+  <!-- Gul (lotus shakli) -->
+  <g transform="translate(32,30) scale(0.7)">
+    <!-- markaziy barg -->
+    <path d="M0 -12 C4 -6, 4 -2, 0 4 C-4 -2, -4 -6, 0 -12z" fill="#E91E63"></path>
+    <!-- chap barg -->
+    <path d="M-10 -6 C-4 -2, -2 2, -2 6 C-6 4, -12 -2, -10 -6z" fill="#81C784"></path>
+    <!-- o‘ng barg -->
+    <path d="M10 -6 C4 -2, 2 2, 2 6 C6 4, 12 -2, 10 -6z" fill="#81C784"></path>
+    <!-- pastki barg -->
+    <path d="M0 4 C-4 8, -2 14, 0 14 C2 14, 4 8, 0 4z" fill="#64B5F6"></path>
+  </g>
+</svg>
