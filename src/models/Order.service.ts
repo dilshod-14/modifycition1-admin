@@ -3,14 +3,14 @@ import {
   OrderInquery,
   OrderItemInput,
   OrderUpdateInput
-} from "../lips/types/order";
-import { Member } from "../lips/types/members";
+} from "../libs/types/order";
+import { Member } from "../libs/types/members";
 import OrderModel from "../schema/Order.model";
-import { shapeIntoMongooseObjectId } from "../lips/config";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 import { ObjectId } from "mongoose";
 import OrderItemModel from "../schema/OrderItem.model";
-import Errors, { HttpCode, Message } from "../lips/Errors";
-import { OrderStatus } from "../lips/enums/order.enum";
+import Errors, { HttpCode, Message } from "../libs/Errors";
+import { OrderStatus } from "../libs/enums/order.enum";
 import MemberService from "./Member.service";
 class OrderService {
   private readonly orderModel;

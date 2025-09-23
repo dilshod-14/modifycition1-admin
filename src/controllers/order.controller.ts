@@ -1,10 +1,10 @@
-import { ExtendedRequest } from "../lips/types/members";
-import { T } from "../lips/types/common";
+import { ExtendedRequest } from "../libs/types/members";
+import { T } from "../libs/types/common";
 import { Response } from "express";
-import Errors, { HttpCode } from "../lips/Errors";
+import Errors, { HttpCode } from "../libs/Errors";
 import OrderService from "../models/Order.service";
-import { OrderInquery, OrderUpdateInput } from "../lips/types/order";
-import { OrderStatus } from "../lips/enums/order.enum";
+import { OrderInquery, OrderUpdateInput } from "../libs/types/order";
+import { OrderStatus } from "../libs/enums/order.enum";
 
 const orderService = new OrderService();
 const orderController: T = {};
@@ -47,7 +47,7 @@ orderController.updateOrder = async (req: ExtendedRequest, res: Response) => {
     const input: OrderUpdateInput = req.body;
     const result = await orderService.updateOrder(req.member, input);
     res.status(HttpCode.CREATED).json(result);
-  } catch (err) { 
+  } catch (err) {
     console.log("Error updateOrder", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);

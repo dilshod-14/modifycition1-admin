@@ -1,12 +1,12 @@
-import { ProductCollection } from "./../lips/enums/product.enum";
-import { shapeIntoMongooseObjectId } from "../lips/config";
+import { ProductCollection } from "../libs/enums/product.enum";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 import { Request, Response } from "express";
-import Errors, { HttpCode, Message } from "../lips/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 
-import { T } from "../lips/types/common";
-import { ProductInput, ProductInquery } from "../lips/types/product";
-import { AdminRequest, ExtendedRequest } from "../lips/types/members";
-import ProductService from "../models/product.service";
+import { T } from "../libs/types/common";
+import { ProductInput, ProductInquery } from "../libs/types/product";
+import { AdminRequest, ExtendedRequest } from "../libs/types/members";
+import ProductService from "../models/Product.service";
 const productService = new ProductService();
 const productController: T = {};
 

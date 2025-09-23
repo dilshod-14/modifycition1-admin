@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 
-import { T } from "../lips/types/common";
+import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
-import { AdminRequest, LoginInput, MemberInput } from "../lips/types/members";
-import { MemberType } from "../lips/enums/member.enum";
-import Errors, { HttpCode, Message } from "../lips/Errors";
+import { AdminRequest, LoginInput, MemberInput } from "../libs/types/members";
+import { MemberType } from "../libs/enums/member.enum";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 const memberService = new MemberService();
 
 const restaurantController: T = {};

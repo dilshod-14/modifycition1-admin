@@ -1,16 +1,16 @@
-import { MemberUpdateInput } from "./../lips/types/members";
+import { MemberUpdateInput } from "../libs/types/members";
 import { NextFunction, Request, Response } from "express";
-import { T } from "../lips/types/common";
+import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import {
   ExtendedRequest,
   LoginInput,
   Member,
   MemberInput
-} from "../lips/types/members";
-import Errors, { HttpCode, Message } from "../lips/Errors";
+} from "../libs/types/members";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
-import { AUTH_TIMER } from "../lips/config";
+import { AUTH_TIMER } from "../libs/config";
 const memberService = new MemberService();
 const authService = new AuthService();
 
@@ -28,7 +28,7 @@ memberController.getRestaurant = async (req: Request, res: Response) => {
 };
 memberController.signup = async (req: Request, res: Response) => {
   try {
-    console.log("signup"); 
+    console.log("signup");
 
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input); // CALL

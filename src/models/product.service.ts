@@ -1,19 +1,19 @@
-import { ProductCollection } from "../lips/enums/product.enum";
-import { T } from "../lips/types/common";
-import { shapeIntoMongooseObjectId } from "../lips/config";
-import Errors, { HttpCode, Message } from "../lips/Errors";
+import { ProductCollection } from "../libs/enums/product.enum";
+import { T } from "../libs/types/common";
+import { shapeIntoMongooseObjectId } from "../libs/config";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import {
   Product,
   ProductInput,
   ProductInquery,
   ProductUpdateInput
-} from "../lips/types/product";
-import { ProductStatus } from "../lips/enums/product.enum";
+} from "../libs/types/product";
+import { ProductStatus } from "../libs/enums/product.enum";
 import { ObjectId } from "mongoose";
 import { ViewService } from "./View.servic";
-import { ViewInput } from "../lips/types/view";
-import { ViewGroup } from "../lips/enums/view.enum";
-import ProductModel from "../schema/product.model";
+import { ViewInput } from "../libs/types/view";
+import { ViewGroup } from "../libs/enums/view.enum";
+import ProductModel from "../schema/Product.model";
 class ProductService {
   private readonly productModel;
   public viewService;

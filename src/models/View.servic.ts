@@ -1,5 +1,5 @@
-import Errors, { HttpCode, Message } from "../lips/Errors";
-import { View, ViewInput } from "../lips/types/view";
+import Errors, { HttpCode, Message } from "../libs/Errors";
+import { View, ViewInput } from "../libs/types/view";
 import ViewModel from "../schema/View.model";
 
 export class ViewService {

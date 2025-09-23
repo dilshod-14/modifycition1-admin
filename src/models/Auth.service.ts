@@ -1,7 +1,7 @@
-import { AUTH_TIMER } from "../lips/config";
-import { Member } from "../lips/types/members";
+import { AUTH_TIMER } from "../libs/config";
+import { Member } from "../libs/types/members";
 import jwt from "jsonwebtoken";
-import Errors, { Message, HttpCode } from "../lips/Errors";
+import Errors, { Message, HttpCode } from "../libs/Errors";
 
 class AuthService {
   private readonly secretTokin;

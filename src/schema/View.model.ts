@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { ViewGroup } from "../lips/enums/view.enum";
+import { ViewGroup } from "../libs/enums/view.enum";
 
 // Schema first & code first
 const viewSchema = new Schema(
@@ -7,17 +7,17 @@ const viewSchema = new Schema(
     viewGroup: {
       type: String,
       enum: ViewGroup,
-      required: true,
+      required: true
     },
     memberId: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: "Member",
+      ref: "Member"
     },
     viewRefId: {
       type: Schema.Types.ObjectId,
-      required: true,
-    },
+      required: true
+    }
   },
   { timestamps: true } // updatedAt, createdAt
 );

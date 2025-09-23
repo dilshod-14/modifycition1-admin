@@ -5,8 +5,8 @@ import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
-import { MORGAN_FORMAT } from "./lips/config";
-import { T } from "./lips/types/common";
+import { MORGAN_FORMAT } from "./libs/config";
+import { T } from "./libs/types/common";
 
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";

@@ -1,14 +1,14 @@
-import { MemberType, MemberStatus } from "./../lips/enums/member.enum";
+import { MemberType, MemberStatus } from "../libs/enums/member.enum";
 import MemberModel from "../schema/Member.model";
 import {
   LoginInput,
   Member,
   MemberInput,
   MemberUpdateInput
-} from "../lips/types/members";
-import Errors, { HttpCode, Message } from "../lips/Errors";
+} from "../libs/types/members";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import * as bcrypt from "bcryptjs";
-import { shapeIntoMongooseObjectId } from "../lips/config";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 
 class MemberService {
   private readonly memberModel;
