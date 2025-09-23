@@ -4,9 +4,9 @@ import { Request, Response } from "express";
 import Errors, { HttpCode, Message } from "../lips/Errors";
 
 import { T } from "../lips/types/common";
-import ProductService from "../models/Product.servis";
 import { ProductInput, ProductInquery } from "../lips/types/product";
 import { AdminRequest, ExtendedRequest } from "../lips/types/members";
+import ProductService from "../models/product.servis";
 const productService = new ProductService();
 const productController: T = {};
 

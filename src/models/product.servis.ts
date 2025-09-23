@@ -8,12 +8,12 @@ import {
   ProductInquery,
   ProductUpdateInput
 } from "../lips/types/product";
-import ProductModel from "../schema/Product.model";
 import { ProductStatus } from "../lips/enums/product.enum";
 import { ObjectId } from "mongoose";
 import { ViewService } from "./View.servic";
 import { ViewInput } from "../lips/types/view";
 import { ViewGroup } from "../lips/enums/view.enum";
+import ProductModel from "../schema/product.model";
 class ProductService {
   private readonly productModel;
   public viewService;
