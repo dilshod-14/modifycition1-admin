@@ -5,12 +5,20 @@ export enum ProductSize {
   SET = "SET"
 }
 
+// export enum ProductVolume {
+//   HALF = 0.5,
+//   ONE = 1,
+//   ONE_POINT_TWO = 1.2,
+//   ONE_POINT_FIVE = 1.5,
+//   TWO = 2
+// }
+
 export enum ProductVolume {
-  HALF = 0.5,
-  ONE = 1,
-  ONE_POINT_TWO = 1.2,
-  ONE_POINT_FIVE = 1.5,
-  TWO = 2
+  SINGLE = 1,
+  SMALL = 3,
+  MEDIUM = 5,
+  LARGE = 10,
+  CUSTOM = -1
 }
 
 export enum ProductStatus {
@@ -20,9 +28,11 @@ export enum ProductStatus {
 }
 
 export enum ProductCollection {
-  LOTUS = "LOTUS",
-  DAISY = "DAISY",
+ 
   ROSE = "ROSE",
   TULIP = "TULIP",
+  DAISY = "DAISY",
+  LOTUS = "LOTUS",
   OTHER = "OTHER"
 }
+
