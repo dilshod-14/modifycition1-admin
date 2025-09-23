@@ -6,7 +6,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { T } from "../libs/types/common";
 import { ProductInput, ProductInquery } from "../libs/types/product";
 import { AdminRequest, ExtendedRequest } from "../libs/types/members";
-import ProductService from "../models/product.service";
+import ProductService from "../models/Product.service";
 const productService = new ProductService();
 const productController: T = {};
 

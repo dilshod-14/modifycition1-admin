@@ -12,7 +12,7 @@ import { ObjectId } from "mongoose";
 import { ViewInput } from "../libs/types/view";
 import { ViewGroup } from "../libs/enums/view.enum";
 import ViewService from "./View.service";
-import ProductModel from "../schema/product.model";
+import ProductModel from "../schema/Product.model";
 class ProductService {
   private readonly productModel;
   public viewService;
