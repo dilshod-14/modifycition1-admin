@@ -1,4 +1,3 @@
-import { ProductCollection } from "../libs/enums/product.enum";
 import { T } from "../libs/types/common";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
@@ -10,9 +9,9 @@ import {
 } from "../libs/types/product";
 import { ProductStatus } from "../libs/enums/product.enum";
 import { ObjectId } from "mongoose";
-import { ViewService } from "./View.servic";
 import { ViewInput } from "../libs/types/view";
 import { ViewGroup } from "../libs/enums/view.enum";
+import ViewService from "./View.service";
 import ProductModel from "../schema/Product.model";
 class ProductService {
   private readonly productModel;
