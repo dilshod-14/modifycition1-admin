@@ -1,23 +1,17 @@
-.background-video1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 1;
-}
-
 .video-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: -1; /* 🔥 faqat wrapper orqaga */
+  overflow: hidden;
+}
+
+.background-video1 {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: -1;
-  opacity: 1;
 }
 
 .signup-container {
