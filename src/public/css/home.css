@@ -19,7 +19,7 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  opacity: 1.5; /* 🔹 0 (ko‘rinmas) dan 1 (to‘liq ko‘rinadigan) oralig‘ida */
+  opacity: 1.5;
 }
 
 .home-container {
