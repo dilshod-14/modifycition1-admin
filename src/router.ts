@@ -23,7 +23,7 @@ router.get(
 router.post(
   "/member/update",
   memberController.verifyAuth,
-  uploader("members").single("memberImages"),
+  uploader("members").single("memberImage"),
 
   memberController.updateMember
 );
@@ -31,7 +31,7 @@ router.get("/member/top-users", memberController.getTopUsers);
 
 /** Product */
 
-router.get("/product/all/", productController.getProducts);
+router.get("/product/all", productController.getProducts);
 router.get(
   "/product/:id",
   memberController.retrieveAuth,

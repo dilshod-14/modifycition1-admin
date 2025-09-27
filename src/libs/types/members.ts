@@ -43,7 +43,7 @@ export interface MemberUpdateInput {
   memberPassword?: string;
   memberAddress?: string;
   memberDesc?: string;
-  memberImages?: string;
+  memberImage?: string;
 }
 
 export interface ExtendedRequest extends Request {
