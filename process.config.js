@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "FLOWER",
+      name: "FLOWER ADMIN",
       cwd: "./",
       script: "./dist/server.js",
       watch: false,
